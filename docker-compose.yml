@@ -1,0 +1,21 @@
+version: '3' \
+services:
+    web:
+        image: nginx \
+        ports: \
+            - "80:80" \
+        volumes: \
+            - ./html:/usr/share/nginx/html \
+        networks: \
+            - frontend \
+    db:
+        image: mysql:5.7 \
+        volumes: \
+            - ./db:/var/lib/mysql \
+        environment:
+            MYSQL_ROOT_PASSWORD: password \
+        networks: \
+            - backend \
+networks:
+    frontend:
+    backend:
