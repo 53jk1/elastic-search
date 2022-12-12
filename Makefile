@@ -21,3 +21,7 @@ run_elastic_local:
 run_elastic_local_clean:
 	docker run -d --name elastic -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" -v $(shell pwd)/data:/usr/share/elasticsearch/data $(DOCKER_ELASTIC_SEARCH_IMAGE)
 	docker exec -it elastic rm -rf /usr/share/elasticsearch/data/*
+
+stop_elastic:
+	docker stop elastic
+	docker rm elastic
