@@ -1,5 +1,3 @@
-FROM docker.elastic.co/elasticsearch/elasticsearch:6.2.4
-RUN bin/elasticsearch-plugin install analysis-icu
-RUN bin/elasticsearch-plugin install analysis-kuromoji
-RUN bin/elasticsearch-plugin install analysis-smartcn
-RUN bin/elasticsearch-plugin install analysis-stempel
+FROM docker.elastic.co/elasticsearch/elasticsearch:7.6.2
+RUN bin/elasticsearch-plugin install --batch repository-s3
+RUN bin/elasticsearch-plugin install --batch discovery-ec2
