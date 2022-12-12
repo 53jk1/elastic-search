@@ -33,11 +33,7 @@ func (a *App) Run() error {
 	ctx := context.Background()
 	res, err := a.es.Indices.Create(
 		"myindex",
-		a.es.Indices.Create.WithBody(strings.NewReader(`{
-			"settings": {
-				"number_of_shards": 1,	
-				"number_of_replicas": 0
-}}`)),
+		a.es.Indices.Create.WithBody(strings.NewReader(`{"settings": {"number_of_shards": 1,"number_of_replicas": 0}}`)),
 		a.es.Indices.Create.WithContext(ctx),
 	)
 	if err != nil {
