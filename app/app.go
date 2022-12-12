@@ -39,6 +39,7 @@ func (a *App) Run() error {
 	if err != nil {
 		return err
 	}
+	fmt.Println(res)
 
 	// Index a document
 	res, err = a.es.Index(
@@ -50,6 +51,7 @@ func (a *App) Run() error {
 	if err != nil {
 		return err
 	}
+	fmt.Println(res)
 
 	// Get a document
 	res, err = a.es.Get(
@@ -57,10 +59,10 @@ func (a *App) Run() error {
 		"1",
 		a.es.Get.WithPretty(),
 	)
-
 	if err != nil {
 		return err
 	}
+	fmt.Println(res)
 
 	// Delete an index
 	res, err = a.es.Indices.Delete([]string{"myindex"})
